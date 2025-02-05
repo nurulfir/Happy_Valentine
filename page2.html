@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine</title>
+    <link rel="icon" type="image/png" href="icon/Icon1.png">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background: linear-gradient(45deg, #ffcccc, #ff99cc, #ff66b2);
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: backgroundShift 15s ease infinite;
+        }
+
+        @keyframes backgroundShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(255, 102, 153, 0.3);
+            max-width: 500px;
+            margin: 20px;
+            position: relative;
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+        }
+
+        h1 {
+            color: #ff3366;
+            margin-bottom: 25px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 1.1em;
+            margin: 15px 0;
+        }
+
+        .love-emoji {
+            font-size: 35px;
+            color: #ff3366;
+            text-shadow: 0 0 10px rgba(255, 51, 102, 0.3);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .heart {
+            position: absolute;
+            color: #ff6699;
+            font-size: 30px;
+            animation: float 3s infinite;
+            z-index: 1;
+            filter: drop-shadow(0 0 5px rgba(255, 102, 153, 0.5));
+        }
+
+        @keyframes float {
+            0% { 
+                transform: translateY(0) rotate(0deg); 
+                opacity: 1; 
+            }
+            100% { 
+                transform: translateY(-50px) rotate(360deg); 
+                opacity: 0; 
+            }
+        }
+
+        button {
+            background: linear-gradient(to right, #ff99cc, #ff6699);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(255, 102, 153, 0.3);
+            margin-top: 25px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            background: linear-gradient(to right, #ff6699, #ff3366);
+            box-shadow: 0 5px 15px rgba(255, 102, 153, 0.5);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        #greeting {
+            font-size: 1.2em;
+            color: #ff6699;
+            font-weight: 500;
+            margin: 20px 0;
+            padding: 10px;
+            border-radius: 10px;
+            background: rgba(255, 102, 153, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function createHearts() {
+            for (let i = 0; i < 20; i++) {
+                let heart = document.createElement("div");
+                heart.classList.add("heart");
+                heart.innerHTML = "❤️";
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.top = Math.random() * 100 + "vh";
+                heart.style.animationDuration = Math.random() * 2 + 2 + "s";
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 3000);
+            }
+        }
+        setInterval(createHearts, 500);
+    </script>
+    <div class="container">
+        <h1>Selamat Hari Valentine, sayang! ❤️</h1>
+        <p id="greeting"></p>
+        <p class="love-emoji">💖 I Love U 💖</p>
+        <button onclick="window.location.href='page3.html'">✨ Klik aku ✨</button>
+    </div>
+    <script>
+        document.getElementById("greeting").innerHTML = `Aku harap dapat merayakan momen spesial ini selamanya denganmu, ${localStorage.getItem("username")}!`;
+    </script>
+</body>
+</html>
