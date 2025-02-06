@@ -132,18 +132,25 @@
 <body>
     <script>
         function createHearts() {
-            for (let i = 0; i < 20; i++) {
-                let heart = document.createElement("div");
-                heart.classList.add("heart");
-                heart.innerHTML = "❤️";
-                heart.style.left = Math.random() * 100 + "vw";
-                heart.style.top = Math.random() * 100 + "vh";
-                heart.style.animationDuration = Math.random() * 2 + 2 + "s";
-                document.body.appendChild(heart);
-                setTimeout(() => heart.remove(), 3000);
+            let maxHearts = 15; 
+            let currentHearts = document.querySelectorAll(".heart").length;
+    
+            if (currentHearts < maxHearts) {
+                for (let i = 0; i < 10; i++) { 
+                    let heart = document.createElement("div");
+                    heart.classList.add("heart");
+                    heart.innerHTML = "❤️";
+                    heart.style.left = Math.random() * 100 + "vw";
+                    heart.style.top = Math.random() * 100 + "vh";
+                    heart.style.animationDuration = Math.random() * 2 + 3 + "s"; 
+                    document.body.appendChild(heart);
+                    setTimeout(() => heart.remove(), 4000);
+                }
             }
         }
-        setInterval(createHearts, 500);
+        setInterval(createHearts, 1000);
+    </script>
+    
     </script>
     <div class="container">
         <h1>Selamat Hari Valentine, sayang! ❤️</h1>
