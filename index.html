@@ -63,7 +63,7 @@
 <body>
     <script>
         function createHearts() {
-            for (let i = 0; i < 10; i++) { 
+            for (let i = 0; i < 5; i++) { // Kurangi jumlah hati menjadi 5
                 let heart = document.createElement("div");
                 heart.classList.add("heart");
                 heart.innerHTML = "❤️";
@@ -74,7 +74,7 @@
                 setTimeout(() => heart.remove(), 4000);
             }
         }
-        setInterval(createHearts, 1000); // Ubah interval menjadi 2 detik agar tidak terlalu sering
+        setInterval(createHearts, 2000); // Ubah interval menjadi 2 detik agar tidak terlalu sering
     </script>
     <div class="container">
         <h1>Nama Kamu</h1>

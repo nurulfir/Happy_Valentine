@@ -136,7 +136,7 @@
             let currentHearts = document.querySelectorAll(".heart").length;
     
             if (currentHearts < maxHearts) {
-                for (let i = 0; i < 10; i++) { 
+                for (let i = 0; i < 5; i++) { // Membuat lebih sedikit heart
                     let heart = document.createElement("div");
                     heart.classList.add("heart");
                     heart.innerHTML = "❤️";
@@ -148,7 +148,7 @@
                 }
             }
         }
-        setInterval(createHearts, 1000);
+        setInterval(createHearts, 1500);
     </script>
     
     </script>
