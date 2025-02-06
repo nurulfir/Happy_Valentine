@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine</title>
+    <link rel="icon" type="image/png" href="icon/Icon1.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to bottom, #ffcccc, #ff99cc);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+            position: relative;
+        }
+        input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-top: 10px;
+            border: 2px solid #ff66b2;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #ff66b2;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #ff3385;
+        }
+        .heart {
+            position: absolute;
+            color: #ff6699;
+            font-size: 30px;
+            animation: float 4s infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-50px); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function createHearts() {
+            for (let i = 0; i < 5; i++) { // Kurangi jumlah hati menjadi 5
+                let heart = document.createElement("div");
+                heart.classList.add("heart");
+                heart.innerHTML = "❤️";
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.top = Math.random() * 100 + "vh";
+                heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 4000);
+            }
+        }
+        setInterval(createHearts, 2000); // Ubah interval menjadi 2 detik agar tidak terlalu sering
+    </script>
+    <div class="container">
+        <h1>Nama Kamu</h1>
+        <input type="text" id="name" placeholder="Masukin Nama Kamu yaa" />
+        <button onclick="submitForm()">Lanjut</button>
+    </div>
+    <script>
+        function submitForm() {
+            let name = document.getElementById("name").value;
+            if (name) {
+                localStorage.setItem("username", name);
+                window.location.href = "Hallo.html";
+            }
+        }
+    </script>
+</body>
+</html>
